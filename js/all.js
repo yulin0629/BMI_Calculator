@@ -59,13 +59,29 @@ let calculate_btn = document.getElementById('btn-calculate');
 calculate_btn.addEventListener('click', onCalculateClick);
 let resultIndicator = document.querySelector('.result');
 resultIndicator.addEventListener('click', onCalculateClick);
+let inputWeight = document.getElementById('weight');
+inputWeight.addEventListener('keydown', onInputKeyDown);
+let inputHeight = document.getElementById('height');
+inputHeight.addEventListener('keydown', onInputKeyDown);
 
-function onCalculateClick(e) {
-    let inputHeight = parseInt(document.getElementById('height').value);
-    let inputWeight = parseInt(document.getElementById('weight').value);
-    addRecords(inputHeight, inputWeight);
-    updateCalcuateButton(inputHeight, inputWeight);
+init();
+function init() {
+    records = localStorage.getItem('bmi_records') || [];
+    records = JSON.parse(records);
     updateList();
+}
+function onCalculateClick(e) {
+    calculateBmi();
+}
+
+function onInputKeyDown(e) {
+    switch (e.code) {
+        case 'Enter':
+            calculateBmi();
+            break;
+        default:
+        break;
+    }
 }
 
 function addRecords(height, weight) {
@@ -76,10 +92,20 @@ function addRecords(height, weight) {
     let formattedDateStr = `${month}-${date}-${currentDate.getFullYear()}`;
     let newRecord = { height: height, weight: weight, date: formattedDateStr }
     records.push(newRecord);
+    localStorage.setItem('bmi_records', JSON.stringify(records));
 }
 
-
-updateList();
+function calculateBmi() {
+    let height = parseInt(document.getElementById('height').value);
+    let weight = parseInt(document.getElementById('weight').value);
+    if (isNaN(height) || isNaN(weight)) {
+        alert('請輸入正確的數值');
+        return;
+    }
+    addRecords(height, weight);
+    updateCalcuateButton(height, weight);
+    updateList();
+}
 
 function updateCalcuateButton(height, weight) {
     const bmiValue = getBMIValue(height, weight);
