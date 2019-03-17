@@ -1,0 +1,294 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #F7F7F7
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#header {
+    background: #424242;
+}
+
+#header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 53px;
+    padding-top: 18px;
+    height: 300px;
+}
+
+#header .container>h1 {
+    margin-right: 113px;
+}
+
+#header .container>.inputs {
+    margin-right: 53px;
+}
+
+.input-group {
+    margin-bottom: 23px;
+}
+
+.input-group:last-child {
+    margin-bottom: 0;
+}
+
+.input-group input {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 2px solid #FFD366;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 4px 16px;
+    color: white;
+}
+
+.input-group label {
+    display: block;
+    font-size: 18px;
+    color: #FFD366;
+    margin-bottom: 2px;
+}
+
+.result {
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.result.result-healthy {
+    color: #86D73F;
+}
+
+.result.result-underweight {
+    color: #31BAF9;
+}
+
+.result.result-overweight {
+    color: #FF982D;
+}
+
+.result.result-healthy {
+    color: #86D73F;
+}
+
+.result.result-overweight-1 {
+    color: #FF6C03;
+}
+
+.result.result-overweight-2 {
+    color: #FF3602;
+}
+
+.result.result-overweight-3 {
+    color: #FF1200;
+}
+
+#btn-calculate {
+    color: #424242;
+    width: 120px;
+    height: 120px;
+    border-style: none;
+    border-radius: 50%;
+    background: #FFD366;
+    font-size: 24px;
+    color: #424242;
+    cursor: pointer;
+}
+
+.result-bmi {
+    width: 7.5rem;
+    height: 7.5rem;
+    border: 0.4rem solid;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+    position: relative;
+}
+
+.result-bmi-number {
+    position: relative;
+}
+
+.result-bmi-number p {
+    position: absolute;
+    font-size: 42.5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.result-bmi-refresh {
+    border-radius: 50%;
+    padding: 5.5px 8px;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    transform: translate(3px, 3px);
+    border: #424242 3px solid;
+}
+
+.result-healthy .result-bmi-refresh {
+    background-color: #86D73F;
+}
+
+.result-underweight .result-bmi-refresh {
+    background-color: #31BAF9;
+}
+
+.result-overweight .result-bmi-refresh {
+    background-color: #FF982D;
+}
+
+.result-overweight-1 .result-bmi-refresh {
+    background-color: #FF6C03;
+}
+
+.result-overweight-2 .result-bmi-refresh {
+    background-color: #FF3602;
+}
+
+.result-overweight-3 .result-bmi-refresh {
+    background-color: #FF1200;
+}
+
+.content {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.content h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #424242;
+    margin-bottom: 36px;
+}
+
+.records {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.records>li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 21px 0;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.records>li::before {
+    position: absolute;
+    content: ' ';
+    width: 7px;
+    height: 100%;
+    display: block;
+}
+
+.records>li>p {
+    flex-basis: 20%;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.records>li>p:first-child {
+    flex-basis: 15%;
+}
+
+.records>li>p:last-child {
+    flex-basis: auto;
+}
+
+.record-healthy::before {
+    background-color: #86D73F;
+    box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+}
+
+.record-underweight::before {
+    background-color: #31BAF9;
+    box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+}
+
+.record-overweight::before {
+    background-color: #FF982D;
+    box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+}
+
+.record-overweight-1::before {
+    background-color: #FF6C03;
+    box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+}
+
+.record-overweight-2::before {
+    background-color: #FF3602;
+    box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+}
+
+.record-overweight-3::before {
+    background-color: #FF1200;
+    box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+}
+
+.records>li>p {
+    font-size: 20px;
+    color: #4A4A4A;
+}
+
+.records>li>p:first-child {
+    margin-left: 19px;
+}
+
+.records>li>p:last-child {
+    margin-right: 12px;
+}
+
+.records>li>p>span {
+    font-size: 12px;
+    vertical-align: middle;
+    color: #424242;
+}
+
+#footer {
+    background: #FFD366;
+    text-align: center;
+    padding: 18px 0;
+}
+
+#footer .logo {
+    filter: brightness(0);
+    height: 55px;
+    width: 55px;
+}
+
+.display-none {
+    display: none;
+}
