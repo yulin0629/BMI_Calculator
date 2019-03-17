@@ -55,6 +55,7 @@ function getBMIValue(height, weight) {
 
 
 let record_list = document.querySelector('.records');
+record_list.addEventListener('click', onListClick);
 let calculate_btn = document.getElementById('btn-calculate');
 calculate_btn.addEventListener('click', onCalculateClick);
 let resultIndicator = document.querySelector('.result');
@@ -72,6 +73,14 @@ function init() {
 }
 function onCalculateClick(e) {
     calculateBmi();
+}
+
+function onListClick(e) {
+    if(e.target.classList.contains('destroy')) {
+        let index = e.target.parentElement.dataset.index;
+        removeRecord(index);
+        updateList();
+    }
 }
 
 function onInputKeyDown(e) {
@@ -92,6 +101,11 @@ function addRecords(height, weight) {
     let formattedDateStr = `${month}-${date}-${currentDate.getFullYear()}`;
     let newRecord = { height: height, weight: weight, date: formattedDateStr }
     records.push(newRecord);
+    localStorage.setItem('bmi_records', JSON.stringify(records));
+}
+
+function removeRecord(index) {
+    records.splice(index, 1);
     localStorage.setItem('bmi_records', JSON.stringify(records));
 }
 
@@ -127,11 +141,11 @@ function updateCalcuateButton(height, weight) {
 }
 function updateList() {
     record_list.innerHTML = '';
-    records.forEach(record => {
+    records.forEach((record, i) => {
         const bmiValue = getBMIValue(record.height, record.weight);
         const [bmiState, bmiDescription] = getBMIState(bmiValue);
         record_list.innerHTML += `
-        <li data-level='normal' class="record-${bmiState}">
+        <li data-level='normal' data-index='${i}' class="record-${bmiState}">
             <p>${bmiDescription}</p>
             <p>
                 <span>BMI</span>
@@ -148,6 +162,7 @@ function updateList() {
             <p>
                 <span>${record.date}</span>
             </p>
+            <button class="destroy"></button>
         </li>
         `;
     })

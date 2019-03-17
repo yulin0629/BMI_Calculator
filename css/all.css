@@ -11,6 +11,16 @@ body {
     background-color: #F7F7F7
 }
 
+button {
+    border: 0;
+    background: none;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    vertical-align: baseline;
+}
+
 .clearfix:after {
     content: ".";
     display: block;
@@ -214,6 +224,7 @@ body {
     align-items: center;
     background: white;
     padding: 21px 0;
+    padding-right: 25px;
     position: relative;
     margin-bottom: 16px;
 }
@@ -234,10 +245,38 @@ body {
 
 .records>li>p:first-child {
     flex-basis: 15%;
+    margin-left: 19px;
 }
 
-.records>li>p:last-child {
+.records>li>p:last-of-type {
     flex-basis: auto;
+    margin-right: 20px;
+}
+
+.records li .destroy {
+    display: none;
+    position: absolute;
+    top: 50%;
+	right: 10px;
+    font-size: 30px;
+    color: #cc9a9a;
+    transform: translate(0, -50%);
+    transition: color 0.2s ease-out;
+    font-weight: 200;
+}
+
+.records li .destroy:after {
+    content: '×';
+    display: block;
+}
+
+.records li .destroy:hover {
+    color: #af5b5e;
+}
+
+
+.records li:hover .destroy {
+    display: block;
 }
 
 .record-healthy::before {
@@ -273,14 +312,6 @@ body {
 .records>li>p {
     font-size: 20px;
     color: #4A4A4A;
-}
-
-.records>li>p:first-child {
-    margin-left: 19px;
-}
-
-.records>li>p:last-child {
-    margin-right: 12px;
 }
 
 .records>li>p>span {
