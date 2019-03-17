@@ -78,33 +78,40 @@ body {
     font-size: 32px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
-.result.result-healthy {
+.result .result-description {
+    position: absolute;
+    left: 110%;
+    width: 10rem;
+}
+
+.healthy {
     color: #86D73F;
 }
 
-.result.result-underweight {
+.underweight {
     color: #31BAF9;
 }
 
-.result.result-overweight {
+.overweight {
     color: #FF982D;
 }
 
-.result.result-healthy {
+.healthy {
     color: #86D73F;
 }
 
-.result.result-overweight-1 {
+.overweight-1 {
     color: #FF6C03;
 }
 
-.result.result-overweight-2 {
+.overweight-2 {
     color: #FF3602;
 }
 
-.result.result-overweight-3 {
+.overweight-3 {
     color: #FF1200;
 }
 
@@ -130,7 +137,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 18px;
     position: relative;
 }
 
@@ -155,27 +161,27 @@ body {
     border: #424242 3px solid;
 }
 
-.result-healthy .result-bmi-refresh {
+.healthy .result-bmi-refresh {
     background-color: #86D73F;
 }
 
-.result-underweight .result-bmi-refresh {
+.underweight .result-bmi-refresh {
     background-color: #31BAF9;
 }
 
-.result-overweight .result-bmi-refresh {
+.overweight .result-bmi-refresh {
     background-color: #FF982D;
 }
 
-.result-overweight-1 .result-bmi-refresh {
+.overweight-1 .result-bmi-refresh {
     background-color: #FF6C03;
 }
 
-.result-overweight-2 .result-bmi-refresh {
+.overweight-2 .result-bmi-refresh {
     background-color: #FF3602;
 }
 
-.result-overweight-3 .result-bmi-refresh {
+.overweight-3 .result-bmi-refresh {
     background-color: #FF1200;
 }
 
